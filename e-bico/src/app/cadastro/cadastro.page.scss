@@ -1,0 +1,74 @@
+ion-button {
+    --border-width: 5px;
+    font-weight: bold;
+    height: 35pt;
+    font-size: 16pt;
+}
+
+ion-icon {
+    font-size: 20px;
+  }
+
+ion-datetime {
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+ion-input {
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ion-card {
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+  }
+
+
+.alto {
+    height: 48pt;
+ }
+
+ img{
+  background-color: transparent;
+  border: none; 
+ }
+
+ #background{
+   background-image: url(https://images.pexels.com/photos/2444429/pexels-photo-2444429.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+   background-repeat: no-repeat;
+ }
+
+ .scroll-content {
+  overflow-y: hidden;
+}
+
+ion-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+ #branco{
+   background-color: white;
+   
+ }
+
+#content{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: white;
+}
+
+ion-content{
+  --background: url('/assets/img/bg.png');
+}
+
+.cinza{
+  color:rgba(144, 144, 144);
+}

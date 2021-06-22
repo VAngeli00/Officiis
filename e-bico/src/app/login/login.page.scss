@@ -1,0 +1,27 @@
+.card-center{
+    width:80%;
+    display: block;
+    margin: 10%;
+    position: absolute;
+}
+
+ion-card{
+    background-color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+ion-item-divider{
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+ion-label{
+    justify-content: center;
+    font-size: 14pt !important;
+    font-family: sans-serif;
+    margin-bottom: 0 !important;
+    
+}
+

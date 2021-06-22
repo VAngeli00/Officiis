@@ -1,0 +1,60 @@
+.ion-avatar  {
+    width:100% !important;
+    height : 100% !important;
+    max-width: 200px !important;
+    max-height: 200px !important;
+}
+
+td.direita {
+    text-align: right;
+    vertical-align: top;
+  }
+
+td.esquerda {
+    text-align: left;
+    vertical-align: top;
+}
+
+div {
+    padding-top: 5pt;
+    padding-right: 5pt;
+    padding-bottom: 5pt;
+    padding-left: 5pt;
+}
+
+.foto-grande {
+    height: 100pt;
+    width: 100pt;
+}
+
+.maior{
+    font-size: 18pt;
+}
+
+.padding-direita{
+    padding-right: 5pt;
+}
+
+.green{
+    color: green;
+}
+
+.foto-grande{
+    height: 75pt;
+    width: 75pt;
+}
+
+.header{
+    --background: #5535d1;
+    font-size: 20pt;
+    font-weight: bold;
+    --color: white;
+  }
+
+  .my-custom-menu {
+    --width: 500px;
+  }
+  
+  .clickable {
+    pointer-events: auto !important;
+  }

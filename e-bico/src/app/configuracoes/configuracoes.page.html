@@ -1,0 +1,152 @@
+<ion-toolbar color="primary" class="header">
+  <ion-back-button defaultHref="menu-inicial" slot="start" icon="arrow-undo-sharp"></ion-back-button>
+  <ion-label>Configurações</ion-label>
+  <ion-buttons slot="end">
+    <ion-menu-button menu="first"></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-menu side="end" menuId="first" contentId="content">
+  <ion-header>
+    <ion-toolbar color="primary" class="header">
+      <ion-label class="ion-padding-start">Menu</ion-label>
+      <ion-buttons slot="start">
+        <ion-menu-button menu="main-menu"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content id="content" class="clickable">
+    <ion-list>
+      <ion-item button (click)="navegarMeuPerfil()"><ion-icon name="person-sharp" class="ion-padding-end"></ion-icon>Meu Perfil</ion-item>
+      <ion-item button (click)="navegarFavoritos()"><ion-icon name="star-sharp" class="ion-padding-end"></ion-icon>Favoritos</ion-item>
+      <ion-item button (click)="navegarMenuPrincipal()"><ion-icon name="home-sharp" class="ion-padding-end"></ion-icon>Menu Principal</ion-item>
+      <ion-item><ion-icon name="settings-sharp" class="ion-padding-end"></ion-icon>Configurações</ion-item>
+      <ion-item button (click)="_authService.logoutUser()"><ion-icon name="exit-sharp" class="ion-padding-end"></ion-icon>Sair</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-content>
+  <div>
+
+    <ion-card class="padding-2">
+      <ion-card-title>
+        Distância do Serviço
+      </ion-card-title>
+        <ion-item class="padding-2">
+          <table style="width:100%;">
+            <tr>
+              <td colspan="2">
+                <ion-range dualKnobs="true" min="1" max="50" step="1" snaps="true" ticks="true"></ion-range>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>
+                  <ion-label slot="start">1km</ion-label>
+                </div>
+              </td>
+              <td class="direita">
+                <div>
+                  <ion-label slot="end">50km</ion-label>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </ion-item>
+
+        <ion-card-title>
+          Informações Pessoais
+        </ion-card-title>
+
+
+      <div>
+        <table style="width:100%;" *ngFor="let conf of configuracoes">
+          <tr>
+            <div>
+              <ion-item-divider>
+                <td style="width:20%;">
+                  <ion-label>Nome</ion-label>
+                </td>
+                <td>
+                  <ion-input placeholder="{{conf.nome}}"></ion-input>
+                </td>
+              </ion-item-divider>
+            </div>
+          </tr>
+
+          <tr>
+            <div>
+              <ion-item-divider>
+                <td style="width:20%;">
+                  <ion-label>E-mail</ion-label>
+                </td>
+                <td>
+                  <ion-input placeholder="{{conf.email}}"></ion-input>
+                </td>
+              </ion-item-divider>
+            </div>
+          </tr>
+
+          <tr>
+            <div>
+              <ion-item-divider>
+                <td style="width:20%;">
+                  <ion-label>RG</ion-label>
+                </td>
+                <td>
+                  <ion-input placeholder="{{conf.rg}}"></ion-input>
+                </td>
+              </ion-item-divider>
+            </div>
+          </tr>
+
+          <tr>
+            <div>
+              <ion-item-divider>
+                <td style="width:20%;">
+                  <ion-label>CPF</ion-label>
+                </td>
+                <td>
+                  <ion-input placeholder="{{conf.cpf}}"></ion-input>
+                </td>
+              </ion-item-divider>
+            </div>
+          </tr>
+
+          <tr>
+            <div>
+              <ion-item-divider>
+                <td style="width:20%;">
+                  <ion-label>Endereço</ion-label>
+                </td>
+                <td>
+                  <ion-input placeholder="{{conf.endereco}}"></ion-input>
+                </td>
+              </ion-item-divider>
+            </div>
+          </tr>
+        </table>
+
+      </div>
+        <div>
+          <table width="100%">
+            <tr>
+              <td class="esquerda">
+                <ion-checkbox disabled="true"></ion-checkbox>
+                <ion-label class="padding-2">Consumidor</ion-label>
+              </td>
+              <td class="direita">
+                <ion-checkbox disabled="true"></ion-checkbox>
+                <ion-label class="padding-2">Prestador de Serviço</ion-label>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <table>
+          <ion-button>OK</ion-button>
+        </table>
+    </ion-card>
+
+  </div>
+</ion-content>

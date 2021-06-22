@@ -1,0 +1,36 @@
+<img src='/assets/img/login.png'>
+<ion-content>
+  
+  <div class="alinhar-baixo">
+    
+    <ion-card class="card-center">
+      
+        <ion-input [(ngModel)]="loginUserData.email" name="email" placeholder="LOGIN" class="ion-padding">
+          <ion-icon name="mail-sharp" position="floating" color="primary"></ion-icon>
+        </ion-input>
+     
+
+        <ion-input [(ngModel)]="loginUserData.password" name="password" placeholder="SENHA" class="ion-padding" type="password">
+          <ion-icon name="lock-closed-sharp" position="floating" color="primary"></ion-icon>
+        </ion-input>
+        
+      
+      <div class='ion-padding'>
+        <ion-button (click)="loginUser()" type="submit" expand="full" shape="round" color="dark"> 
+          <ion-icon name="log-in" position="floating"></ion-icon>
+          <ion-label>Login</ion-label>
+        </ion-button>
+      </div>
+
+      
+      <ion-item-divider>
+        <ion-label routerLink="cadastro" style="text-align:middle" routerLink="/cadastro">Cadastre-se clicando aqui</ion-label>
+      </ion-item-divider>
+      <ion-item-divider>
+        <ion-label color="primary">Esqueci minha senha</ion-label>
+      </ion-item-divider>
+      
+      
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-toolbar color="primary" class="header">
+  <ion-back-button defaultHref="menu-inicial" slot="start" icon="arrow-undo-sharp"></ion-back-button>
+  <ion-label>Favoritos</ion-label>
+  <ion-buttons slot="end">
+    <ion-menu-button menu="first"></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-menu side="end" menuId="first" contentId="content">
+  <ion-header>
+    <ion-toolbar color="primary" class="header">
+      <ion-label class="ion-padding-start">Menu</ion-label>
+      <ion-buttons slot="start">
+        <ion-menu-button menu="main-menu"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content id="content" class="clickable">
+    <ion-list>
+      <ion-item button (click)="navegarMeuPerfil()"><ion-icon name="person-sharp" class="ion-padding-end"></ion-icon>Meu Perfil</ion-item>
+      <ion-item><ion-icon name="star-sharp" class="ion-padding-end"></ion-icon>Favoritos</ion-item>
+      <ion-item button (click)="navegarMenuPrincipal()"><ion-icon name="home-sharp" class="ion-padding-end"></ion-icon>Menu Principal</ion-item>
+      <ion-item button (click)="navegarConfiguracoes()"><ion-icon name="settings-sharp" class="ion-padding-end"></ion-icon>Configurações</ion-item>
+      <ion-item button (click)="_authService.logoutUser()"><ion-icon name="exit-sharp" class="ion-padding-end"></ion-icon>Sair</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Pesquisar Favoritos">
+  </ion-searchbar>
+  </ion-toolbar>
+</div>
+
+<ion-content class="scrollAteFinal">
+
+<ion-card>
+  <ion-card-header>Favoritos</ion-card-header>
+  <ion-card-content>
+    <div>
+      <ion-item-divider class="padding-horizontal">
+        <table style="width:100%;">
+          <tr>
+            <td rowspan="2" style="width:10%;">
+              <div class="ion-padding-end">
+                <ion-avatar><img src="https://images.pexels.com/photos/1669754/pexels-photo-1669754.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></ion-avatar>
+              </div>
+            </td>
+            <td style="text-align:left" style="width:80%;"><ion-card-title>Nestor, o Pintor</ion-card-title></td>
+            <td class="direita"><ion-icon name="star" style="font-size:25pt;" color="primary"></ion-icon></td>
+          </tr>
+          <tr>
+            <ion-text>Pinturas de paredes para sua casa.</ion-text>
+          </tr>
+        </table>
+      </ion-item-divider>
+    </div>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,135 @@
+
+<ion-content class="ion-padding">
+  <div class="ion-padding" id="content">
+    <div id="container"></div>
+    <div class="ion-padding">
+      <form [formGroup]="formularioCadastro" (ngSubmit)="submit()">
+        <table style="width:100%">
+          <!-- Nome -->
+          <tr>
+            <td><ion-icon name="person-sharp" position="floating" color="secondary"></ion-icon></td>
+            <ion-item>
+              <td><ion-input formControlName="nome" [(ngModel)]="registerUserData.nome" name="nome" placeholder="Nome" class="ion-padding"></ion-input></td>
+            </ion-item>
+          </tr>
+
+          <tr *ngFor="let nomeErro of mensagensErro.name">
+            <td></td>
+            <td><ion-text color="danger" *ngIf="formularioCadastro.get('nome').hasError(nomeErro.type) && ((formularioCadastro.get('nome').dirty) || formularioCadastro.get('email').touched)">{{nomeErro.message}}</ion-text></td>
+          </tr>
+
+          <!-- E-mail -->
+          <tr>
+            <td><ion-icon name="mail-sharp" position="floating" color="secondary"></ion-icon></td>
+            <ion-item>
+              <td><ion-input formControlName="email" [(ngModel)]="registerUserData.email" name="email" placeholder="E-mail" class="ion-padding"></ion-input></td>
+            </ion-item>
+          </tr>
+
+          <tr *ngFor="let emailErro of mensagensErro.email">
+            <td></td>
+            <td><ion-text color="danger" *ngIf="formularioCadastro.get('email').hasError(emailErro.type) && (formularioCadastro.get('email').dirty || formularioCadastro.get('email').touched)">{{emailErro.message}}</ion-text></td>
+          </tr>
+
+          <!-- RG -->
+          <tr>
+            <td><ion-icon name="id-card-sharp" position="floating" color="secondary"></ion-icon></td>
+            <ion-item>
+              <td><ion-input formControlName="rg" [(ngModel)]="registerUserData.rg" name="rg" placeholder="RG" class="ion-padding"></ion-input></td>
+            </ion-item>
+          </tr>
+
+            <tr *ngFor="let rgErro of mensagensErro.rg">
+              <td></td>
+              <td><ion-text color="danger" *ngIf="formularioCadastro.get('rg').hasError(rgErro.type) && (formularioCadastro.get('rg').dirty || formularioCadastro.get('rg').touched)">{{rgErro.message}}</ion-text></td>
+            </tr>
+
+            <!-- CPF -->
+            <tr>
+              <td><ion-icon name="card-sharp" position="floating" color="secondary"></ion-icon></td>
+              <ion-item>
+                <td><ion-input formControlName="cpf" [(ngModel)]="registerUserData.cpf" name="cpf" placeholder="CPF" class="ion-padding"></ion-input></td> 
+              </ion-item>
+            </tr>
+
+            <tr *ngFor="let cpfErro of mensagensErro.cpf">
+              <td></td>
+              <td>
+                <ion-text color="danger" *ngIf="formularioCadastro.get('cpf').hasError(cpfErro.type) && (formularioCadastro.get('cpf').dirty || formularioCadastro.get('cpf').touched)">{{cpfErro.message}}</ion-text>
+              </td>
+            </tr>
+
+            <!-- Senha -->
+            <tr>
+              <td><ion-icon name="lock-closed-sharp" position="floating" color="secondary"></ion-icon></td>
+              <ion-item>
+                <td><ion-input formControlName="password" [(ngModel)]="registerUserData.password" name="password" type="password" placeholder="Senha" class="ion-padding"></ion-input></td>
+              </ion-item>
+            </tr>
+
+            <tr *ngFor="let passwordErro of mensagensErro.password">
+              <td></td>
+              <td>
+                <ion-text color="danger" *ngIf="formularioCadastro.get('password').hasError(passwordErro.type) && (formularioCadastro.get('password').dirty || formularioCadastro.get('password').touched)">{{passwordErro.message}}</ion-text>
+              </td>
+            </tr>
+
+            <!-- Confirmar Senha -->
+            <tr>
+              <td><ion-icon name="lock-closed-sharp" position="floating" color="secondary"></ion-icon></td>
+              <ion-item>
+                <td><ion-input formControlName="confirmpassword" [(ngModel)]="registerUserData.confirmpassword" name="confirmpassword" type="password" placeholder="Confirmar Senha" class="ion-padding"></ion-input></td>
+              </ion-item>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td *ngFor="let confirmpasswordErro of mensagensErro.confirmpassword">
+                <ion-text color="danger" *ngIf="formularioCadastro.get('confirmpassword').hasError(confirmpasswordErro.type) && (formularioCadastro.get('confirmpassword').dirty || formularioCadastro.get('confirmpassword').touched)">{{confirmpasswordErro.message}}</ion-text>
+                <ion-text color="danger" *ngIf="formularioCadastro.get('confirmpassword').value != formularioCadastro.get('password').value &&  formularioCadastro.get('confirmpassword').touched && !(formularioCadastro.get('confirmpassword').hasError(confirmpasswordErro.type))">Campo "Senha" diverge de "Confirmar Senha"</ion-text>
+              </td>
+            </tr>
+
+          
+
+
+            <!-- Endereço -->
+            <tr>
+              <td><ion-icon name="home-sharp" position="floating" color="secondary"></ion-icon></td>
+              <ion-item>
+                <td><ion-input formControlName="endereco" [(ngModel)]="registerUserData.endereco" name="endereco" placeholder="Endereço" class="ion-padding"></ion-input></td> 
+              </ion-item>
+            </tr>
+
+            <tr *ngFor="let enderecoErro of mensagensErro.endereco">
+              <td></td>
+              <td><ion-text color="danger" *ngIf="formularioCadastro.get('endereco').hasError(enderecoErro.type) && (formularioCadastro.get('endereco').dirty || formularioCadastro.get('endereco').touched)">{{enderecoErro.message}}</ion-text></td>
+            </tr>
+
+            <!-- Data de Nascimento -->
+            <tr>
+              <td><ion-icon name="calendar-clear-sharp" position="floating" color="secondary"></ion-icon></td>
+              <td><ion-item>
+                <ion-datetime min="1900" formControlName="datanasc" [(ngModel)]="registerUserData.datanasc" name="datanasc" displayFormat="DD/MM/YYYY" placeholder="Data de Nascimento"></ion-datetime>
+              </ion-item></td>
+            </tr>
+
+            <tr class="alto">
+              <td><ion-checkbox color="primary" formControlName="isPrestador" [(ngModel)]="registerUserData.isPrestador"></ion-checkbox></td>
+              <td class="cinza">Prestador de Serviços</td>
+            </tr>
+        </table>
+      </form>
+
+      <div>
+        <ion-button (click)="registerUser()" expand="full" shape="round" color="primary"> 
+          <ion-icon name="log-in" position="floating"></ion-icon>
+          <ion-label>CADASTRAR</ion-label>
+        </ion-button>
+
+        <ion-label class="cinza">Já possui conta? Faça seu login </ion-label>
+        <ion-label color="primary" routerLink="/login">clicando aqui.</ion-label>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,111 @@
+<ion-toolbar color="primary" class="header">
+  <ion-back-button defaultHref="menu-inicial" slot="start" icon="arrow-undo-sharp"></ion-back-button>
+  <ion-label>Serviço</ion-label>
+  <ion-buttons slot="end">
+    <ion-menu-button menu="first"></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-menu side="end" menuId="first" contentId="content">
+  <ion-header>
+    <ion-toolbar color="primary" class="header">
+      <ion-label class="ion-padding-start">Menu</ion-label>
+      <ion-buttons slot="start">
+        <ion-menu-button menu="main-menu"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content id="content" class="clickable">
+    <ion-list>
+      <ion-item button (click)="navegarMeuPerfil()"><ion-icon name="person-sharp" class="ion-padding-end"></ion-icon>Meu Perfil</ion-item>
+      <ion-item button (click)="navegarFavoritos()"><ion-icon name="star-sharp" class="ion-padding-end"></ion-icon>Favoritos</ion-item>
+      <ion-item button (click)="navegarMenuPrincipal()"><ion-icon name="home-sharp" class="ion-padding-end"></ion-icon>Menu Principal</ion-item>
+      <ion-item button (click)="navegarConfiguracoes()"><ion-icon name="settings-sharp" class="ion-padding-end"></ion-icon>Configurações</ion-item>
+      <ion-item button (click)="_authService.logoutUser()"><ion-icon name="exit-sharp" class="ion-padding-end"></ion-icon>Sair</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Pesquisar Serviços">
+  </ion-searchbar>
+  </ion-toolbar>
+</div>
+
+<ion-content class="scrollAteFinal">
+  <ion-card>
+    <div>
+      <table style="width:100%" clas="ion-padding">
+        <tr>
+          <td rowspan="2" style="width:10%;">
+            <div>
+              <ion-avatar class="foto-grande">
+                <img src="{{data.img}}">
+              </ion-avatar>
+            </div>
+          </td>
+          <td class="esquerda"><ion-card-title>{{data.name}}</ion-card-title></td>
+          <td (click)="toggleClicado()" class="direita"><ion-icon [id]="data.id" [name]="data.isFavorito ? 'star' : 'star-outline'" style="font-size:25pt;" color="primary"></ion-icon></td>
+        </tr>
+        <tr>
+          <ion-label>{{data.description}}</ion-label>
+        </tr>
+        <tr>
+          <ion-label class="green">Aberto</ion-label>
+        </tr>
+        <tr>
+          <td>
+            <ion-badge>Loja Presencial</ion-badge>
+            <ion-badge>Atendimento a Domicílio</ion-badge>
+          </td>
+          <td class="direita">
+            <ion-icon name="pricetag-sharp" class="padding-direita"></ion-icon><ion-label class="maior"><i>$$$$$</i></ion-label><br>
+            <ion-label class="maior">4,9 Estrelas</ion-label>
+          </td>
+        </tr>
+        <tr>
+          <span *ngFor="let star of stars">
+            <app-stars (starEnter)="onStarEnter($event)" (starLeave)="onStarLeave()" (starClicked)="onStarClicked($event)" [starId]="star" [rating]="hoverState || rating"></app-stars>
+          </span>
+        </tr>
+      </table>
+    </div>
+  </ion-card>
+
+  <ion-card>
+    <div><td class="esquerda"><ion-card-title>Serviços</ion-card-title></td></div>
+    
+    <div *ngFor="let servico of data.servicos">
+    <table style="width:100%">
+      <tr>
+        <td rowspan="2" style="width:10%;">
+          <div class="ion-padding-end">
+            <ion-avatar>
+              <img src="{{servico.img}}">
+            </ion-avatar>
+          </div>
+        </td>
+        <div>
+          <td class="esquerda">
+            <ion-card-title>{{servico.name}}</ion-card-title>
+          </td>
+        </div>
+      </tr>
+
+      <tr>
+        <div>
+          <td>
+            <ion-label>{{servico.description}}</ion-label>
+          </td>
+        </div>
+      </tr>
+
+      <tr style="text-align:center;">
+        <ion-label>R$ {{servico.preco}}</ion-label>
+      </tr>
+    </table>
+    <ion-item-divider></ion-item-divider>
+    </div>
+  </ion-card>
+</ion-content>
